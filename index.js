@@ -10,7 +10,6 @@ function ConvertCtoF(degreesCelsius) {
         document.getElementById("FInput").value = cTemp;
         return cTemp;
     };
-
     // console.log(parseFloat(cTemp));
 };
 // console.log(ConvertCtoF());
@@ -24,13 +23,10 @@ function ConvertFtoC(degreesFahrenheit) {
     let fTemp = ((fInput - 32) * 5 / 9);
     //line of code below is good!!!
     document.getElementById("CInput").value = fTemp;
-    //allows finput to be displayed only
-    // document.getElementById("CInput").value = "";
-
+    //allows finput to be displayed only, clears cinput
+    document.getElementById("CInput").value = "";
 
     return fTemp;
-
-
 };
 // console.log(ConvertFtoC());
 
@@ -54,12 +50,10 @@ function fahrenheitImg() {
         document.getElementById("warmImage").style.visibility = "visible"
         // console.log(parseFloat(fTemp));
     };
-    //allows cinput to be displayed-cannot have them both live or else
-    // document.getElementById("FInput").value = "";
+
 }
 
 // ERROR MESSAGE
-
 function fahrenheitErrorMessage() {
     let fahrenheit = document.getElementById("FInput").value;
     let text;
@@ -75,6 +69,7 @@ function fahrenheitErrorMessage() {
 }
 
 function celciusErrorMessage() {
+    //this is still taking the input from FInput, just returning NaN
     let celcius = document.getElementById("CInput").value;
     let text;
 
@@ -89,30 +84,7 @@ function celciusErrorMessage() {
 }
 
 
-
-// function for one input field displaying number at a time
-
-function clearInput() {
-    let celcius = document.getElementById("CInput").value;
-    let fahrenheit = document.getElementById("FInput").value;
-
-    //loop for one input being displayed
-    if (celcius == celcius.value) {
-        document.getElementById("FInput").value;
-    }
-    else if (fahrenheit == fahrenheit.value) {
-        document.getElementById("CInput").value;
-    }
-
-
-};
-
-
-
-
-
 function bodyLoaded() {
-    // Your code here 
 
     //create a click event that when convert button is clicked, functions will work and return a number
     document.getElementById("ConvertButton").addEventListener("click", ConvertCtoF);
@@ -120,9 +92,6 @@ function bodyLoaded() {
 
     //this will hear the click and diplay the correct image
     document.getElementById("ConvertButton").addEventListener("click", fahrenheitImg);
-
-    // One output at a time
-    document.getElementById("ConvertButton").addEventListener("click", clearInput);
 
     // Error Message if input is NaN
     document.getElementById("ConvertButton").addEventListener("click", celciusErrorMessage);
@@ -132,6 +101,4 @@ function bodyLoaded() {
     document.getElementById("warmImage").style.visibility = "hidden";
     document.getElementById("coolImage").style.visibility = "hidden";
     document.getElementById("coldImage").style.visibility = "hidden";
-
-
 };
